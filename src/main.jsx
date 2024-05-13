@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import { RouterProvider } from 'react-router-dom'
+import router from './provider/Routes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <h1 className='font-roboto text-3xl'>Welcome to Solosphare</h1>
+    <RouterProvider router = {router}></RouterProvider>
   </React.StrictMode>,
 )
