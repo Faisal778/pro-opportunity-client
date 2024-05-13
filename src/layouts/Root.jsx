@@ -1,10 +1,11 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 const Root = () => {
     return (
         <div>
             {/* Navbar */}
-                <h1>main</h1>
+              <Navbar />
 
             {/* Outlet */}
 
