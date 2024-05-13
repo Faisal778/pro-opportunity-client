@@ -19,13 +19,14 @@ const Signin = () => {
         }
     }
 
+    //form sign in
     const handleSignIn = async e =>{
         e.preventDefault()
         const form = e.target 
         const email = form.email.value
         const password = form.password.value 
         try {
-            const result = await singIn(email, password)
+            const result = await signIn(email, password)
             navigate('/')
             toast.success("Signed in successfully")
         } catch (err) {

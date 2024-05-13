@@ -1,7 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../provider/AuthProvider';
 const Signup = () => {
+
+  
+    const {signInWithGoogle, createUser, updateUserProfile, user, setUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    //google sign in
+    const handleGoogleSignUp = async () =>{
+        try {
+            await signInWithGoogle()
+            toast.success("Signed up successfully")
+            navigate('/')
+
+        }catch (err){
+            toast.error(err?.message)
+        }
+    }
+
 
     return (
     
@@ -20,7 +38,7 @@ const Signup = () => {
               Get Your Free Account Now.
             </p>
   
-            <div className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
+            <div onClick={handleGoogleSignUp} className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
               <div className='px-4 py-2'>
                 <svg className='w-6 h-6' viewBox='0 0 40 40'>
                   <path
@@ -43,7 +61,7 @@ const Signup = () => {
               </div>
   
               <span className='w-5/6 px-4 py-3 font-bold text-center'>
-                Sign in with Google
+                Sign Up with Google
               </span>
             </div>
   
