@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../../assets/images/logo.png'
 const Signin = () => {
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
@@ -14,9 +14,9 @@ const Signin = () => {
   
           <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
             <div className='flex justify-center mx-auto'>
-              <img
-                className='w-auto h-7 sm:h-8'
-                src='https://merakiui.com/images/logo.svg'
+            <img
+                className='w-auto h-14 sm:h-14 '
+                src= {logo}
                 alt=''
               />
             </div>
