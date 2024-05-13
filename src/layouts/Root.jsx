@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer';
+
 
 const Root = () => {
     return (
@@ -9,9 +11,12 @@ const Root = () => {
               <Navbar />
 
             {/* Outlet */}
+            <div className='min-h-[calc(100vh-432px)]'>
             <Outlet></Outlet>
+            </div>
 
             {/* Footer */}
+            <Footer></Footer>
         </div>
     );
 };
