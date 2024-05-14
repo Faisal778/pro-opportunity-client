@@ -24,7 +24,7 @@ const Carousal = () => {
           slidesPerView={'auto'}
           loop ={true}
           coverflowEffect={{
-            rotate: 50,
+            rotate: 80,
             stretch: 0,
             depth: 100,
             modifier: 1,
@@ -32,7 +32,7 @@ const Carousal = () => {
           }}
           autoplay = {{
             delay: 2500,
-            disableOnInteraction: true,
+            disableOnInteraction: false,
           }}
           pagination={true}
           modules={[Autoplay, EffectCoverflow, Pagination]}
