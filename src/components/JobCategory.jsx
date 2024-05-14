@@ -1,5 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import JobCard from './JobCard';
 
 const JobCategory = () => {
     return (
@@ -16,7 +17,7 @@ const JobCategory = () => {
         </div>
     
         <TabPanel>
-          <h2>Any content 1</h2>
+          <h2><JobCard></JobCard></h2>
         </TabPanel>
         <TabPanel>
           <h2>Any content 2</h2>
