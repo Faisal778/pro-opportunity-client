@@ -3,7 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <a>Settings</a>
               </li>
               <li>
-                <a>Logout</a>
+                <a onClick={logOut}>Logout</a>
               </li>
             </ul>
           </div>

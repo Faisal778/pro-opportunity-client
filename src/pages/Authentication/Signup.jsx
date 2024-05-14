@@ -20,6 +20,25 @@ const Signup = () => {
         }
     }
 
+    //form sign up
+    const handleSignUp = async e => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const name = form.name.value
+        const photo = form.photo.value
+        const password = form.password.value
+        try {
+            const result = await createUser(email,password)
+            await updateUserProfile(name, photo)
+            setUser({...user, photoURL: photo, displayName: name})
+            navigate('/')
+            toast.success("Signed up successfully")
+        } catch (err){
+            toast.error(err?.message)
+        }
+    }
+
 
     return (
     
@@ -74,7 +93,7 @@ const Signup = () => {
   
               <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
             </div>
-            <form>
+            <form onSubmit={handleSignUp}>
               <div className='mt-4'>
                 <label
                   className='block mb-2 text-sm font-medium text-gray-600 '
