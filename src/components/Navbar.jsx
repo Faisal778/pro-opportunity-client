@@ -61,7 +61,7 @@ const Navbar = () => {
               <Link to='/appliedJobs'>Applied Jobs</Link>
             </li>
               <li>
-              <Link to='/addAJob'>Add Job</Link>
+              <Link to='/addJob'>Add Job</Link>
             </li>
             <li>
               <Link to='/myJobs'>My Jobs</Link>
