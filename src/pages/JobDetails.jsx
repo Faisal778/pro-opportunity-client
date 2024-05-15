@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
   const { user } = useContext(AuthContext);
@@ -8,6 +10,10 @@ const JobDetails = () => {
   const { _id, applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category, picture_url, description, recruiter_email } = job || {};
 
   const handleApplyNow = async e => {
+    // same recruiter and applicant verification.
+    if (user?.email === recruiter_email) return toast.error("You can't aplly on your own post"
+    )
+
     e.preventDefault()
     const form = e.target 
     const jobId = _id
@@ -19,7 +25,15 @@ const JobDetails = () => {
         jobId,  name, email, job_title, deadline, category, recruiter_email, resume
     }
 
-    console.table(applyData)
+    try{
+        const{data} = await axios.post(`${import.meta.env.VITE_API_URL}/appliedResumes`, applyData)
+        console.log(data)
+        document.getElementById("my_modal_3").close();
+        toast.success("Applied for the job successfully")
+
+    }catch(err){
+        console.log(err)
+    }
 
 }
 
@@ -115,9 +129,11 @@ const JobDetails = () => {
                 </div>
 
                 <div className="flex justify-center mt-6">
-                  <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                
+                  <button className=" px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                     Submit
                   </button>
+                 
                 </div>
               </form>
             </section>
