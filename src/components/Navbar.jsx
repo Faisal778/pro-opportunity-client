@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar bg-base-100 shadow-lg rounded-lg my-5">
       <div className="navbar-start">
         <div className="dropdown z-50     ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -19,8 +19,8 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">
-          <img className="w-auto h-14 sm:h-14 " src={logo} alt="" />
+        <Link to="/" className="btn btn-ghost text-xl pl-0 ">
+          <img className=" h-14 sm:h-14 w-[120px] sm:w-[200px] md:w-auto " src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
