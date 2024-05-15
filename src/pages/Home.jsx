@@ -2,6 +2,8 @@ import React from 'react';
 import Carousal from '../components/Carousal';
 import JobCategory from '../components/JobCategory';
 import { useLoaderData } from 'react-router-dom';
+import Testemonial from '../components/Testemonial';
+import Teams from '../components/Teams';
 
 const Home = () => {
 
@@ -14,6 +16,11 @@ const Home = () => {
             <Carousal></Carousal>
             {/* <JobCategory jobs={jobs}></JobCategory> */}
             <JobCategory></JobCategory>
+<Testemonial></Testemonial>
+<Teams></Teams>
+
+
+            
         </div>
     );
 };
