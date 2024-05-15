@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,22 +15,22 @@ const Navbar = () => {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to='/allJobs'>All Jobs</Link>
+              <NavLink to='/allJobs'>All Jobs</NavLink>
             </li>
            {
             user && (
              <div>
               <li>
-              <Link to='/appliedJobs'>Applied Jobs</Link>
+              <NavLink to='/appliedJobs'>Applied Jobs</NavLink>
             </li>
               <li>
-              <Link to='/addAJob'>Add Job</Link>
+              <NavLink to='/addAJob'>Add Job</NavLink>
             </li>
             <li>
-              <Link to='/myJobs'>My Jobs</Link>
+              <NavLink to='/myJobs'>My Jobs</NavLink>
             </li>
           
              </div>
@@ -38,33 +38,33 @@ const Navbar = () => {
             )
            }
                <li>
-              <Link to='/blog'>Blog</Link>
+              <NavLink to='/blog'>Blog</NavLink>
             </li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl pl-0 ">
+        <NavLink to="/" className="btn btn-ghost text-xl pl-0 ">
           <img className=" h-14 sm:h-14 w-[120px] sm:w-[200px]" src={logo} alt="" />
-        </Link>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-              <Link to='/allJobs'>All Jobs</Link>
+              <NavLink to='/allJobs'>All Jobs</NavLink>
             </li>
            {
             user && (
              <div className="flex flex-row">
               <li>
-              <Link to='/appliedJobs'>Applied Jobs</Link>
+              <NavLink to='/appliedJobs'>Applied Jobs</NavLink>
             </li>
               <li>
-              <Link to='/addJob'>Add Job</Link>
+              <NavLink to='/addJob'>Add Job</NavLink>
             </li>
             <li>
-              <Link to='/myJobs'>My Jobs</Link>
+              <NavLink to='/myJobs'>My Jobs</NavLink>
             </li>
           
              </div>
@@ -72,17 +72,16 @@ const Navbar = () => {
             )
            }
                <li>
-              <Link to='/blog'>Blog</Link>
+              <NavLink to='/blog'>Blog</NavLink>
             </li>
         </ul>
       </div>
       <div className="navbar-end">
         {!user && (
-          <Link to="signin">
+          <NavLink to="signin">
             <button className="btn btn-sm btn-accent">Sign in</button>
-          </Link>
+          </NavLink>
         )}
-
 
         {user && (
           <div className="dropdown dropdown-end z-50">
@@ -92,16 +91,7 @@ const Navbar = () => {
                 <img referrerPolicy="no-referrer" alt="image of user" src={user?.photoURL} />
               </div>
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">            
               <li>
                 <a onClick={logOut}>Logout</a>
               </li>
