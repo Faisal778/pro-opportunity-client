@@ -10,7 +10,7 @@ const JobDetails = () => {
   const { _id, applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category, picture_url, description, recruiter_email } = job || {};
 
   const handleApplyNow = async e => {
-    // same recruiter and applicant verification.
+    // same recruiter and applicant validation.
     if (user?.email === recruiter_email) return toast.error("You can't aplly on your own post"
     )
 
