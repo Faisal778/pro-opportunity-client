@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { Button } from "flowbite-react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const MyJobs = () => {
               <td>{job.job_title}</td>
               <td>{job.category}</td>
               <td>{new Date(job.deadline).toLocaleDateString()}</td>
-              <td><button  className=" btn btn-xs btn-success">Update</button></td>
+             <Link to = {`/update/${job._id}`}>  <td><button  className=" btn btn-xs btn-success">Update</button></td></Link>
             <td><button onClick={(() => handleDelete(job._id))} className="btn btn-xs btn-error">Delete</button></td>
              
             </tr>
