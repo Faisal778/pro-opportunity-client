@@ -17,10 +17,33 @@ const Navbar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
+            <li>
+              <Link to='/allJobs'>All Jobs</Link>
+            </li>
+           {
+            user && (
+             <div>
+              <li>
+              <Link to='/appliedJobs'>Applied Jobs</Link>
+            </li>
+              <li>
+              <Link to='/addAJob'>Add Job</Link>
+            </li>
+            <li>
+              <Link to='/myJobs'>My Jobs</Link>
+            </li>
+          
+             </div>
+            
+            )
+           }
+               <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl pl-0 ">
-          <img className=" h-14 sm:h-14 w-[120px] sm:w-[200px] md:w-auto " src={logo} alt="" />
+          <img className=" h-14 sm:h-14 w-[120px] sm:w-[200px]" src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -28,6 +51,29 @@ const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+              <Link to='/allJobs'>All Jobs</Link>
+            </li>
+           {
+            user && (
+             <div className="flex flex-row">
+              <li>
+              <Link to='/appliedJobs'>Applied Jobs</Link>
+            </li>
+              <li>
+              <Link to='/addAJob'>Add Job</Link>
+            </li>
+            <li>
+              <Link to='/myJobs'>My Jobs</Link>
+            </li>
+          
+             </div>
+            
+            )
+           }
+               <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
         </ul>
       </div>
       <div className="navbar-end">
@@ -37,10 +83,12 @@ const Navbar = () => {
           </Link>
         )}
 
+
         {user && (
           <div className="dropdown dropdown-end z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div title={user?.displayName} className="w-10 rounded-full">
+              
                 <img referrerPolicy="no-referrer" alt="image of user" src={user?.photoURL} />
               </div>
             </div>

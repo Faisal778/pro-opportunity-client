@@ -3,6 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import Signin from "../pages/Authentication/Signin";
 import Signup from "../pages/Authentication/Signup";
+import JobDetails from "../pages/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/jobs`),
+       // loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/jobs`), used axios, so this one is not needed
       },
       {
         path: "signin",
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
       },
+      {
+        path:"job/:id",
+        element: <JobDetails></JobDetails>,
+        loader: ({params}) => fetch(`${import.meta.env.ViTE_API_URL}/jobs/${params.id}`),
+      },
+
     ],
   },
 ]);

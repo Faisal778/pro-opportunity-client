@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
-  const { applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category } = job || {}
+  const { _id, applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category } = job || {}
   return (
-    <div className="w-[320px] max-w-lg overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 mt-10">
+    <Link to = {`job/${_id}`}  className="w-[320px] overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 mt-10 ">
       <div className="flex items-center px-6 py-3 bg-gray-900">
         <svg
           aria-label="headphones icon"
@@ -31,11 +32,11 @@ const JobCard = ({ job }) => {
         <p className="py-1 text-sm text-gray-700 dark:text-gray-400">Salary: {salary_range} </p>
         <p className="py-1 text-sm text-gray-700 dark:text-gray-400">Applied Applicants: {applicants_number} </p>
 
-        <button className="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+        <button className="px-6 py-2  font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
           See Details
         </button>
       </div>
-    </div>
+    </Link>
   );
 };
 

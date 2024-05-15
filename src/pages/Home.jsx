@@ -5,13 +5,15 @@ import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
 
-    const jobs = useLoaderData()
-    console.log(jobs)
+    //used for data fatching using loader in routes. not needed in axios
+    // const jobs = useLoaderData()
+    // console.log(jobs)
 
     return (
         <div>
             <Carousal></Carousal>
-            <JobCategory jobs={jobs}></JobCategory>
+            {/* <JobCategory jobs={jobs}></JobCategory> */}
+            <JobCategory></JobCategory>
         </div>
     );
 };
