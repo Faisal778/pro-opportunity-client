@@ -5,16 +5,21 @@ import { AuthContext } from "../provider/AuthProvider";
 const JobDetails = () => {
   const { user } = useContext(AuthContext);
   const job = useLoaderData();
-  const { _id, applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category, picture_url, description } =
-    job || {};
+  const { _id, applicants_number, deadline, job_posting_date, recruiter_name, salary_range, job_title, category, picture_url, description, recruiter_email } = job || {};
 
   const handleApplyNow = async e => {
     e.preventDefault()
     const form = e.target 
     const jobId = _id
-    const name = form.name.value 
+    const name = form.username.value 
     const email = form.email.value 
     const resume = form.resume.value 
+
+    const applyData = {
+        jobId,  name, email, job_title, deadline, category, recruiter_email, resume
+    }
+
+    console.table(applyData)
 
 }
 
@@ -67,7 +72,7 @@ const JobDetails = () => {
             <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
               <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Account settings</h2>
 
-              <form>
+              <form onSubmit={handleApplyNow}>
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                   <div>
                     <label className="text-gray-700 dark:text-gray-200" htmlFor="username">
